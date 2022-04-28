@@ -34,8 +34,7 @@ Costo int,
 Fecha_Inicio date, 
 Fecha_Fin date,
 Id_Temario int not null,
-Id_Turno int not null,
-Id_Calificacion int not null
+Id_Turno int not null
 );
 
 CREATE TABLE Temario( 
@@ -76,4 +75,25 @@ calificacion float(10),
 Id_curso int not null,
 Id_Alumno int not null
 );
+
+ALTER TABLE Doctores ADD FOREIGN KEY(Id_Especialidad) REFERENCES Especialidades(Id_Especialidad); 
+
+ALTER TABLE Alumnos ADD FOREIGN KEY(Id_Alumno_Curso) REFERENCES Alumno_Curso(Id_Alumno_Curso);
+
+ALTER TABLE Cursos ADD FOREIGN KEY(Id_Temario) REFERENCES Temario(Id_Temario), 
+ADD FOREIGN KEY(Id_Turno) REFERENCES Turno(Id_Turno) ;
+
+ALTER TABLE Asistencia ADD FOREIGN KEY(Id_Alumno_Curso) REFERENCES Alumno_Curso(Id_Alumno_Curso),
+ADD FOREIGN KEY(Id_Curso) REFERENCES Cursos(Id_Curso);
+
+ALTER TABLE Modalidad_Curso ADD FOREIGN KEY(Id_Curso) REFERENCES Cursos(Id_Curso);
+
+ALTER TABLE Comentarios ADD FOREIGN KEY(Id_Curso) REFERENCES Cursos(Id_Curso), 
+ADD FOREIGN KEY(Id_Alumno) REFERENCES Alumnos(Id_Alumno), 
+ADD FOREIGN KEY(Id_Doctor) REFERENCES Doctores(Id_Doctor) ;
+
+ALTER TABLE Alumno_Curso ADD FOREIGN KEY(Id_Curso) REFERENCES Cursos(Id_Curso), 
+ADD FOREIGN KEY(Id_Alumno) REFERENCES Alumnos(Id_Alumno);
+
+
 
