@@ -5,10 +5,10 @@ CREATE TABLE Doctores(
 Id_Doctor int primary key not null auto_increment, 
 Nombre varchar(70),
 Apellidos varchar(70),
-Telefono int,
+Telefono varchar(12),
 Direccion varchar(150),
 Correo varchar(80),
-Cedula_Profecional varchar(50),
+Cedula_Profecional varchar(40),
 Id_Especialidad int not null
 );
 
@@ -21,7 +21,7 @@ CREATE TABLE Alumnos(
 Id_Alumno int primary key not null auto_increment, 
 Nombre varchar(50), 
 Apellidos varchar(80),  
-Telefono int, 
+Telefono varchar(12), 
 Direccion varchar(200), 
 Correo varchar(80),
 Id_Alumno_Curso int not null
@@ -29,7 +29,7 @@ Id_Alumno_Curso int not null
 
 CREATE TABLE Cursos( 
 Id_Curso int primary key not null auto_increment, 
-Nombre_Curso varchar(50), 
+Nombre_Curso varchar(70), 
 Costo int,  
 Fecha_Inicio date, 
 Fecha_Fin date,
@@ -39,7 +39,7 @@ Id_Turno int not null
 
 CREATE TABLE Temario( 
 Id_Temario int primary key not null auto_increment, 
-Nombre varchar(80),
+Nombre varchar(120),
 Descripcion varchar(150)
 );
 
